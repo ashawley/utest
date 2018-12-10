@@ -24,11 +24,11 @@ object BeforeAfterEachFailureTests extends TestSuite {
     } else ()
 
   def tests = Tests {
-    'hello {
+    "hello" - {
       Future(10)
     }
 
-    'beforeAfterEachFailures {
+    "beforeAfterEachFailures" - {
       def tests = Tests {
         "testSuccess" - {
           Future {
@@ -51,14 +51,14 @@ object BeforeAfterEachFailureTests extends TestSuite {
             throw new Exception("Lols boom")
           }
         }
-        'succeed - {
+        "succeed" - {
           failNextBeforeEach = true
           1
         }
-        'failBecauseBeforeEachFailed - {
+        "failBecauseBeforeEachFailed" - {
           ???
         }
-        'passedButAfterEachFailed - {
+        "passedButAfterEachFailed" - {
           failAfterEach = true
           3
         }
